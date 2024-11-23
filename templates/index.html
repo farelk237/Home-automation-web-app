@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôleur de périphériques</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Hall devices manager</h1>
+        <div id="device-list" class="mt-4"></div>
+    </div>
+
+    <script>
+        const apiBaseUrl = 'http://127.0.0.1:8000'; // URL de base de votre serveur FastAPI
+
+        // Fonction pour récupérer et afficher les périphériques
+        async function loadDevices() {
+            const response = await fetch(`${apiBaseUrl}/devices`);
+            const devices = await response.json();
+
+            const deviceList = document.getElementById('device-list');
+            deviceList.innerHTML = '';
+
+            Object.keys(devices).forEach(deviceName => {
+                const device = devices[deviceName];
+                const deviceStatus = device.status ? "ON" : "OFF";
+                const btnClass = device.status ? "btn-danger" : "btn-success";
+                const toggleBtnText = device.status ? "Éteindre" : "Allumer";
+
+                deviceList.innerHTML += `
+                    <div class="card mb-3">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">${device.name.charAt(0).toUpperCase() + device.name.slice(1)}</h5>
+                            <p class="card-text">État : <strong>${deviceStatus}</strong></p>
+                            <div>
+                                <button class="btn ${btnClass} me-2" onclick="toggleDevice('${device.name}')">${toggleBtnText}</button>
+                                <button class="btn btn-primary me-2" onclick="setDeviceStatus('${device.name}', true)">Activer</button>
+                                <button class="btn btn-secondary" onclick="setDeviceStatus('${device.name}', false)">Désactiver</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Fonction pour basculer l'état de l'appareil
+        async function toggleDevice(deviceName) {
+            await fetch(`${apiBaseUrl}/devices/${deviceName}/toggle`, {
+                method: 'POST'
+            });
+            loadDevices(); // Recharger la liste des appareils pour mettre à jour l'interface utilisateur
+        }
+
+        // Fonction pour définir explicitement l'état de l'appareil
+        async function setDeviceStatus(deviceName, status) {
+            await fetch(`${apiBaseUrl}/devices/${deviceName}/set`, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ status })
+            });
+            loadDevices(); // Recharger la liste des appareils pour mettre à jour l'interface utilisateur
+        }
+
+        // Chargement initial des appareils
+        loadDevices();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

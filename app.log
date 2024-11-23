@@ -1,0 +1,40 @@
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 404 Not Found"
+ERROR:root:Erreur : Client error '404 Not Found' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+ERROR:root:Erreur : Client error '404 Not Found' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 404 Not Found"
+ERROR:root:Erreur : Client error '404 Not Found' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 404 Not Found"
+ERROR:root:Erreur : Client error '404 Not Found' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+ERROR:root:Erreur : [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 500 Internal Server Error"
+ERROR:root:Erreur : Server error '500 Internal Server Error' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+ERROR:root:Erreur : [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 500 Internal Server Error"
+ERROR:root:Erreur : Server error '500 Internal Server Error' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 404 Not Found"
+ERROR:root:Erreur : Client error '404 Not Found' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+ERROR:root:Erreur : [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 500 Internal Server Error"
+ERROR:root:Erreur : Server error '500 Internal Server Error' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+ERROR:root:Erreur : [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 500 Internal Server Error"
+ERROR:root:Erreur : Server error '500 Internal Server Error' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+ERROR:root:Erreur : [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 500 Internal Server Error"
+ERROR:root:Erreur : Server error '500 Internal Server Error' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+ERROR:root:Erreur : [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8000/devices/list "HTTP/1.1 500 Internal Server Error"
+ERROR:root:Erreur : Server error '500 Internal Server Error' for url 'http://127.0.0.1:8000/devices/list'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+ERROR:root:Erreur : index.html

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <h1>Bienvenue</h1>
+    <button id="fetchDevices">Afficher les appareils</button>
+    <div id="devicesList"></div>
+
+    <script>
+        document.getElementById("fetchDevices").addEventListener("click", async () => {
+            const response = await fetch("/devices");
+            const data = await response.json();
+            document.getElementById("devicesList").innerText = JSON.stringify(data.devices);
+        });
+    </script>
+</body>
+</html>
