@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connections</title>
+</head>
+<body>
+    <h1>Connections</h1>
+
+    <div id="connections-list">
+        <h2>Connection History</h2>
+        <ul>
+            {% for connection in connections %}
+            <li>
+                <strong>Username:</strong> {{ connection['username'] }} |
+                <strong>Login Time:</strong> {{ connection['login_time'] }} |
+                <strong>IP Address:</strong> {{ connection['ip_address'] }} |
+                <strong>Date and Time:</strong> {{ connection['date_time'] }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Link to logout -->
+    <p><a href="/logout">Logout</a></p>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistiques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center">Statistiques</h1>
+  <button class="btn btn-danger" onclick="logout()">Déconnexion</button>
+  <div id="stats" class="mt-4"></div>
+</div>
+
+<script>
+  async function loadStats() {
+    try {
+      const response = await fetch('http://localhost:3001/stats', {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` },
+      });
+
+      if (!response.ok) {
+        throw new Error('Échec du chargement des statistiques');
+      }
+
+      const stats = await response.json();
+      document.getElementById('stats').innerHTML = `
+        <h3>Appareils</h3>
+        <p>Total: ${stats.totalDevices}</p>
+        <p>Types: ${stats.deviceTypes.join(', ')}</p>
+        <ul>${stats.deviceStates.map((d) => `<li>${d.name}: ${d.status}</li>`).join('')}</ul>
+        <h3>Historique des connexions</h3>
+        <ul>${stats.connectionHistory.map((c) => `<li>${c.username} - ${new Date(c.timestamp).toLocaleString()}</li>`).join('')}</ul>
+        <h3>Utilisateurs connectés</h3>
+        <p>${stats.connectedUsers.join(', ')}</p>
+      `;
+    } catch (error) {
+      document.getElementById('stats').textContent = error.message;
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem('accessToken');
+    window.location.href = 'index.html';
+  }
+
+  loadStats();
+</script>
+</body>
+</html>
